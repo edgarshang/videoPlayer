@@ -26,12 +26,14 @@ CONFIG += c++11
 
 SOURCES += \
         QShowWidget.cpp \
+        VideoFFmpeg.cpp \
         main.cpp \
         MainWindow.cpp
 
 HEADERS += \
         MainWindow.h \
-        QShowWidget.h
+        QShowWidget.h \
+        VideoFFmpeg.h
 
 INCLUDEPATH += $$quote(D:\appSoftware\ffmpeg-6.1-full_build-shared\include)
 
