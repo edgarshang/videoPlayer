@@ -10,6 +10,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QComboBox>
 #include "QShowWidget.h"
 
 class MainWindow : public QMainWindow
@@ -31,6 +32,12 @@ private:
     QLabel *m_durationLabel;
     QAbstractButton *m_playButton;
     QShowWidget *m_videoWidget;
+    QComboBox *urlBox;
+
+private slots:
+    void openFile();
+private:
+    void createActions();
 
 private:
      qint64 duration;
