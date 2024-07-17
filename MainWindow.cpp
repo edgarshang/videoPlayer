@@ -15,6 +15,7 @@
 #include <QToolBar>
 #include <QStatusBar>
 #include <QDebug>
+#include "VideoFFmpeg.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -30,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_openButton = new QPushButton(tr("Open..."));
     m_playButton = new QPushButton();
-    m_playButton->setEnabled(false);
+//    m_playButton->setEnabled(true);
     m_playButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
 
     m_positionSlider = new QSlider(Qt::Horizontal);
@@ -69,11 +70,29 @@ MainWindow::MainWindow(QWidget *parent)
     createActions();
     connect(m_openButton, &QAbstractButton::clicked,
             this, &MainWindow::openFile);
+    connect(m_playButton, &QAbstractButton::clicked,
+            this, &MainWindow::play);
+
+    m_player = new VideoFFmpeg(this);
 }
 
 void MainWindow::openFile()
 {
     qDebug() << "test openFile";
+}
+
+void MainWindow::play()
+{
+    qDebug() << "test play";
+}
+
+void MainWindow::showImage(const QImage &imgs)
+{
+    Q_UNUSED(imgs)
+}
+void MainWindow::tellInfoVideo(S_VideoInfo &info)
+{
+    Q_UNUSED(info)
 }
 
 void MainWindow::createActions()

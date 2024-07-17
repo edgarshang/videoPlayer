@@ -11,9 +11,10 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QComboBox>
+#include "IInterface.h"
 #include "QShowWidget.h"
 
-class MainWindow : public QMainWindow
+class MainWindow : public QMainWindow, public IVideoMessageNotify
 {
     Q_OBJECT
 
@@ -36,11 +37,17 @@ private:
 
 private slots:
     void openFile();
+    void play();
 private:
     void createActions();
 
 private:
      qint64 duration;
+     IVideoHandle *m_player;
+
+public:
+     virtual void showImage(const QImage &imgs);
+     virtual void tellInfoVideo(S_VideoInfo &info);
 };
 
 #endif // MAINWINDOW_H

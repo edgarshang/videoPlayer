@@ -31,6 +31,7 @@ SOURCES += \
         MainWindow.cpp
 
 HEADERS += \
+        IInterface.h \
         MainWindow.h \
         QShowWidget.h \
         VideoFFmpeg.h
